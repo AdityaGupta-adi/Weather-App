@@ -27,7 +27,11 @@ locationBtn.addEventListener("click", () => {
         document.getElementById("wind").textContent = data.wind.speed + " km/h";
         document.getElementById("icon").src =
             `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+document.body.className = "";
 
+const weatherMain = data.weather[0].main.toLowerCase();
+
+document.body.classList.add(weatherMain);
     });
 
 });
@@ -71,6 +75,11 @@ async function getWeather() {
             `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
         document.getElementById("icon").alt = data.weather[0].description;
+        document.body.className = "";
+
+const weatherMain = data.weather[0].main.toLowerCase();
+
+document.body.classList.add(weatherMain);
 
     } catch (error) {
         alert("Unable to fetch weather data. Please check your internet connection.");
