@@ -25,6 +25,26 @@ locationBtn.addEventListener("click", () => {
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = data.main.humidity + "%";
         document.getElementById("wind").textContent = data.wind.speed + " km/h";
+        document.getElementById("feelsLike").textContent =
+Math.round(data.main.feels_like) + "°C";
+
+document.getElementById("visibility").textContent =
+(data.visibility / 1000) + " km";
+
+document.getElementById("pressure").textContent =
+data.main.pressure + " hPa";
+
+document.getElementById("sunrise").textContent =
+new Date(data.sys.sunrise * 1000).toLocaleTimeString([], {
+hour: "2-digit",
+minute: "2-digit"
+});
+
+document.getElementById("sunset").textContent =
+new Date(data.sys.sunset * 1000).toLocaleTimeString([], {
+hour: "2-digit",
+minute: "2-digit"
+});
         document.getElementById("icon").src =
             `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 document.body.className = "";
@@ -70,6 +90,26 @@ async function getWeather() {
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = `${data.main.humidity}%`;
         document.getElementById("wind").textContent = `${data.wind.speed} km/h`;
+        document.getElementById("feelsLike").textContent =
+Math.round(data.main.feels_like) + "°C";
+
+document.getElementById("visibility").textContent =
+(data.visibility / 1000) + " km";
+
+document.getElementById("pressure").textContent =
+data.main.pressure + " hPa";
+
+document.getElementById("sunrise").textContent =
+new Date(data.sys.sunrise * 1000).toLocaleTimeString([], {
+hour: "2-digit",
+minute: "2-digit"
+});
+
+document.getElementById("sunset").textContent =
+new Date(data.sys.sunset * 1000).toLocaleTimeString([], {
+hour: "2-digit",
+minute: "2-digit"
+});
 
         document.getElementById("icon").src =
             `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
