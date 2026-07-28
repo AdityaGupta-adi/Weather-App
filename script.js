@@ -67,9 +67,12 @@ cityInput.addEventListener("keypress", (e) => {
 async function getWeather() {
 
     const city = cityInput.value.trim();
+    document.getElementById("loader").style.display="block";
+    document.getElementById("weather").style.display="none";
 
     if (city === "") {
         alert("Please enter a city name.");
+        document.getElementById("loader").style.display = "none";
         return;
     }
 
@@ -120,8 +123,12 @@ minute: "2-digit"
 const weatherMain = data.weather[0].main.toLowerCase();
 
 document.body.classList.add(weatherMain);
+document.getElementById("loader").style.display = "none";
+document.getElementById("weather").style.display = "block";
 
     } catch (error) {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("weather").style.display = "block";
         alert("Unable to fetch weather data. Please check your internet connection.");
         console.error(error);
     }
