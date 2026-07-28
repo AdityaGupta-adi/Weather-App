@@ -110,3 +110,21 @@ body{
 }
 
 }
+
+#locationBtn{
+margin-top:15px;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#28a745;
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+#locationBtn:hover{
+background:#218838;
+transform:translateY(-2px);
+}
