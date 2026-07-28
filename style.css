@@ -172,3 +172,35 @@ margin-bottom:8px;
 font-size:18px;
 font-weight:600;
 }
+
+.forecast-title{
+margin-top:30px;
+margin-bottom:15px;
+}
+
+.forecast-container{
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding-bottom:10px;
+}
+
+.forecast-card{
+min-width:110px;
+background:rgba(255,255,255,.15);
+padding:15px;
+border-radius:15px;
+text-align:center;
+}
+
+.forecast-card img{
+width:60px;
+}
+
+.forecast-card h4{
+margin:10px 0;
+}
+
+.forecast-card p{
+font-size:14px;
+}
