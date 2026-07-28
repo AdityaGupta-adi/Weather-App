@@ -1,42 +1,50 @@
-const apiKey = "YOUR_API_KEY";
+const apiKey = 462e6670cb58e21c2774f6990c3ab0ed;
 
 const searchBtn = document.getElementById("searchBtn");
+const cityInput = document.getElementById("city");
 
 searchBtn.addEventListener("click", getWeather);
 
+cityInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        getWeather();
+    }
+});
+
 async function getWeather() {
 
-    const city = document.getElementById("city").value;
+    const city = cityInput.value.trim();
 
-    if(city===""){
-        alert("Please enter a city name");
+    if (city === "") {
+        alert("Please enter a city name.");
         return;
     }
 
-    const url =
-`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
 
-    try{
+    try {
 
         const response = await fetch(url);
         const data = await response.json();
 
-        if(data.cod != 200){
-            alert("City not found");
+        if (response.status !== 200) {
+            alert(data.message || "City not found.");
             return;
         }
 
-        document.getElementById("cityName").innerText = data.name;
-        document.getElementById("temp").innerText = Math.round(data.main.temp)+"°C";
-        document.getElementById("condition").innerText = data.weather[0].main;
-        document.getElementById("humidity").innerText = data.main.humidity+"%";
-        document.getElementById("wind").innerText = data.wind.speed+" km/h";
+        document.getElementById("cityName").textContent = data.name;
+        document.getElementById("temp").textContent = `${Math.round(data.main.temp)}°C`;
+        document.getElementById("condition").textContent = data.weather[0].description;
+        document.getElementById("humidity").textContent = `${data.main.humidity}%`;
+        document.getElementById("wind").textContent = `${data.wind.speed} km/h`;
 
         document.getElementById("icon").src =
-        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
-    }catch(error){
-        alert("Something went wrong!");
+        document.getElementById("icon").alt = data.weather[0].description;
+
+    } catch (error) {
+        alert("Unable to fetch weather data. Please check your internet connection.");
+        console.error(error);
     }
-
 }
