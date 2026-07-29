@@ -1,4 +1,5 @@
 const apiKey = "462e6670cb58e21c2774f6990c3ab0ed";
+let recentCities = JSON.parse(localStorage.getItem("recentCities")) || [];
 const searchBtn = document.getElementById("searchBtn");
 const cityInput = document.getElementById("city");
 const locationBtn = document.getElementById("locationBtn");
@@ -131,6 +132,17 @@ document.body.classList.add(weatherMain);
 document.getElementById("loader").style.display = "none";
 document.getElementById("weather").style.display = "block";
 document.getElementById("errorBox").style.display = "none";
+        if (!recentCities.includes(city)) {
+    recentCities.unshift(city);
+
+    if (recentCities.length > 5) {
+        recentCities.pop();
+    }
+
+    localStorage.setItem("recentCities", JSON.stringify(recentCities));
+}
+
+showRecentSearches(); 
 
     } catch (error) {
         document.getElementById("loader").style.display = "none";
@@ -139,3 +151,24 @@ document.getElementById("errorBox").style.display = "none";
         console.error(error);
     }
 }
+
+function showRecentSearches() {
+
+    const box = document.getElementById("recentSearches");
+
+    box.innerHTML = "";
+
+    recentCities.forEach(city => {
+
+        box.innerHTML += `
+        <button class="recent-btn"
+        onclick="cityInput.value='${city}';getWeather();">
+        ${city}
+        </button>
+        `;
+
+    });
+
+}
+
+showRecentSearches();
