@@ -288,3 +288,24 @@ color:#222;
 cursor:pointer;
 font-weight:bold;
 }
+
+.favorite-item{
+display:flex;
+align-items:center;
+gap:8px;
+margin:8px;
+}
+
+.delete-btn{
+border:none;
+background:#ff4d4d;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+cursor:pointer;
+font-size:14px;
+}
+
+.delete-btn:hover{
+background:#d63031;
+}
