@@ -1,9 +1,31 @@
 const apiKey = "462e6670cb58e21c2774f6990c3ab0ed";
 let recentCities = JSON.parse(localStorage.getItem("recentCities")) || [];
+let favoriteCities = JSON.parse(localStorage.getItem("favoriteCities")) || [];
 const searchBtn = document.getElementById("searchBtn");
 const cityInput = document.getElementById("city");
 const locationBtn = document.getElementById("locationBtn");
+const favoriteBtn = document.getElementById("favoriteBtn");
 searchBtn.addEventListener("click", getWeather);
+favoriteBtn.addEventListener("click", () => {
+
+    const city = cityInput.value.trim();
+
+    if (city === "") return;
+
+    if (!favoriteCities.includes(city)) {
+
+        favoriteCities.unshift(city);
+
+        localStorage.setItem(
+            "favoriteCities",
+            JSON.stringify(favoriteCities)
+        );
+
+        showFavoriteCities();
+    }
+
+});
+
 locationBtn.addEventListener("click", () => {
 
     if (!navigator.geolocation) {
@@ -172,3 +194,23 @@ function showRecentSearches() {
 }
 
 showRecentSearches();
+function showFavoriteCities() {
+
+    const box = document.getElementById("favoriteCities");
+
+    box.innerHTML = "";
+
+    favoriteCities.forEach(city => {
+
+        box.innerHTML += `
+        <button class="favorite-btn"
+        onclick="cityInput.value='${city}';getWeather();">
+        ⭐ ${city}
+        </button>
+        `;
+
+    });
+
+}
+
+showFavoriteCities();
