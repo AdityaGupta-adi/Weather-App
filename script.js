@@ -84,8 +84,13 @@ async function getWeather() {
         const data = await response.json();
 
         if (response.status !== 200) {
-            alert(data.message || "City not found.");
-            return;
+
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("weather").style.display = "block";
+
+    document.getElementById("errorBox").style.display = "block";
+
+    return;
         }
 
         document.getElementById("cityName").textContent = data.name;
@@ -125,6 +130,7 @@ const weatherMain = data.weather[0].main.toLowerCase();
 document.body.classList.add(weatherMain);
 document.getElementById("loader").style.display = "none";
 document.getElementById("weather").style.display = "block";
+document.getElementById("errorBox").style.display = "none";
 
     } catch (error) {
         document.getElementById("loader").style.display = "none";
