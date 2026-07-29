@@ -98,11 +98,12 @@ async function getWeather() {
     }
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
-
-    try {
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;  try {
 
         const response = await fetch(url);
         const data = await response.json();
+        const forecastResponse = await fetch(forecastUrl);
+        const forecastData = await forecastResponse.json();
 
         if (response.status !== 200) {
 
@@ -164,7 +165,8 @@ document.getElementById("errorBox").style.display = "none";
 
 showRecentSearches(); 
 localStorage.setItem("lastCity", city);
-
+showForecast(forecastData);
+        
     } catch (error) {
         document.getElementById("loader").style.display = "none";
         document.getElementById("weather").style.display = "block";
@@ -241,5 +243,39 @@ if(lastCity){
     cityInput.value = lastCity;
 
     getWeather();
+
+}
+
+function showForecast(forecastData) {
+
+    const forecastBox = document.getElementById("forecast");
+
+    forecastBox.innerHTML = "";
+
+    const dailyForecast = forecastData.list.filter(item =>
+        item.dt_txt.includes("12:00:00")
+    );
+
+    dailyForecast.slice(0, 5).forEach(day => {
+
+        const date = new Date(day.dt_txt);
+
+        const dayName = date.toLocaleDateString("en-US", {
+            weekday: "short"
+        });
+
+        forecastBox.innerHTML += `
+        <div class="forecast-card">
+            <h3>${dayName}</h3>
+
+            <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png">
+
+            <p>${Math.round(day.main.temp)}°C</p>
+
+            <p>${day.weather[0].main}</p>
+        </div>
+        `;
+
+    });
 
 }
