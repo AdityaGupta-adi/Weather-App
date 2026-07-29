@@ -165,6 +165,7 @@ document.getElementById("errorBox").style.display = "none";
 }
 
 showRecentSearches(); 
+localStorage.setItem("lastCity", city);
 
     } catch (error) {
         document.getElementById("loader").style.display = "none";
@@ -228,5 +229,14 @@ function deleteFavorite(city){
     );
 
     showFavoriteCities();
+}
+
+const lastCity = localStorage.getItem("lastCity");
+
+if(lastCity){
+
+    cityInput.value = lastCity;
+
+    getWeather();
 
 }
