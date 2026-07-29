@@ -198,19 +198,35 @@ function showFavoriteCities() {
 
     const box = document.getElementById("favoriteCities");
 
-    box.innerHTML = "";
-
-    favoriteCities.forEach(city => {
-
-        box.innerHTML += `
-        <button class="favorite-btn"
-        onclick="cityInput.value='${city}';getWeather();">
+    box.innerHTML += `
+<div class="favorite-item">
+    <button class="favorite-btn"
+    onclick="cityInput.value='${city}';getWeather();">
         ⭐ ${city}
-        </button>
-        `;
+    </button>
+
+    <button class="delete-btn"
+    onclick="deleteFavorite('${city}')">
+        ❌
+    </button>
+</div>
+`;
 
     });
 
 }
 
 showFavoriteCities();
+
+function deleteFavorite(city){
+
+    favoriteCities = favoriteCities.filter(c => c !== city);
+
+    localStorage.setItem(
+        "favoriteCities",
+        JSON.stringify(favoriteCities)
+    );
+
+    showFavoriteCities();
+
+}
