@@ -165,6 +165,7 @@ document.getElementById("errorBox").style.display = "none";
 
 showRecentSearches(); 
 localStorage.setItem("lastCity", city);
+console.log(forecastData);
 showForecast(forecastData);
         
     } catch (error) {
