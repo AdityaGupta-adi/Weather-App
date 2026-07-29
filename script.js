@@ -79,8 +79,6 @@ document.body.classList.add(weatherMain);
 
 });
 
-searchBtn.addEventListener("click", getWeather);
-
 cityInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         getWeather();
@@ -195,23 +193,28 @@ function showRecentSearches() {
 }
 
 showRecentSearches();
+
 function showFavoriteCities() {
 
     const box = document.getElementById("favoriteCities");
 
-    box.innerHTML += `
-<div class="favorite-item">
-    <button class="favorite-btn"
-    onclick="cityInput.value='${city}';getWeather();">
-        ⭐ ${city}
-    </button>
+    box.innerHTML = "";
 
-    <button class="delete-btn"
-    onclick="deleteFavorite('${city}')">
-        ❌
-    </button>
-</div>
-`;
+    favoriteCities.forEach(city => {
+
+        box.innerHTML += `
+        <div class="favorite-item">
+            <button class="favorite-btn"
+            onclick="cityInput.value='${city}';getWeather();">
+                ⭐ ${city}
+            </button>
+
+            <button class="delete-btn"
+            onclick="deleteFavorite('${city}')">
+                ❌
+            </button>
+        </div>
+        `;
 
     });
 
