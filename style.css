@@ -229,3 +229,27 @@ border-radius:12px;
 font-weight:bold;
 text-align:center;
 }
+
+#recentSearches{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin-top:15px;
+}
+
+.recent-btn{
+padding:8px 15px;
+border:none;
+border-radius:20px;
+background:rgba(255,255,255,0.2);
+color:white;
+cursor:pointer;
+font-size:14px;
+transition:0.3s;
+}
+
+.recent-btn:hover{
+background:white;
+color:#333;
+}
