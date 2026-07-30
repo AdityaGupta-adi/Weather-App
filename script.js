@@ -16,7 +16,9 @@ celsiusBtn.addEventListener("click", () => {
     localStorage.setItem("unit", currentUnit);
 
     if (cityInput.value.trim() !== "") {
-        getWeather();
+    getWeather();
+    updateUnitButtons();
+        }
     }
 
 });
@@ -27,7 +29,9 @@ fahrenheitBtn.addEventListener("click", () => {
     localStorage.setItem("unit", currentUnit);
 
     if (cityInput.value.trim() !== "") {
-        getWeather();
+    getWeather();
+    updateUnitButtons();
+        }
     }
 
 });
@@ -63,18 +67,17 @@ locationBtn.addEventListener("click", () => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${currentUnit}&appid=${apiKey}`;
 
         const response = await fetch(url);
         const data = await response.json();
 
         document.getElementById("cityName").textContent = data.name;
-        document.getElementById("temp").textContent = Math.round(data.main.temp) + "°C";
+        document.getElementById("temp").textContent =Math.round(data.main.temp) +(currentUnit === "metric" ? "°C" : "°F");
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = data.main.humidity + "%";
         document.getElementById("wind").textContent = data.wind.speed + " km/h";
-        document.getElementById("feelsLike").textContent =
-Math.round(data.main.feels_like) + "°C";
+        document.getElementById("feelsLike").textContent = Math.round(data.main.feels_like) +(currentUnit === "metric" ? "°C" : "°F");
 
 document.getElementById("visibility").textContent =
 (data.visibility / 1000) + " km";
@@ -298,7 +301,7 @@ function showForecast(forecastData) {
     forecastBox.innerHTML = "";
 
     const dailyForecast = forecastData.list.filter(item =>
-        item.dt_txt.includes("12:00:00")
+    item.dt_txt.includes("12:00:00")
     );
 
     dailyForecast.slice(0, 5).forEach(day => {
@@ -315,7 +318,10 @@ function showForecast(forecastData) {
 
             <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png">
 
-            <p>${Math.round(day.main.temp)}°C</p>
+            <p>
+${Math.round(day.main.temp)}
+${currentUnit === "metric" ? "°C" : "°F"}
+</p>
 
             <p>${day.weather[0].main}</p>
         </div>
@@ -342,3 +348,15 @@ function showAQI(aqiData) {
     document.getElementById("aqiStatus").textContent = status[aqi];
 
 }
+
+function updateUnitButtons() {
+
+    celsiusBtn.style.opacity =
+        currentUnit === "metric" ? "1" : "0.6";
+
+    fahrenheitBtn.style.opacity =
+        currentUnit === "imperial" ? "1" : "0.6";
+
+}
+
+updateUnitButtons();
