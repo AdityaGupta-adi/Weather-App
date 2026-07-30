@@ -5,7 +5,32 @@ const searchBtn = document.getElementById("searchBtn");
 const cityInput = document.getElementById("city");
 const locationBtn = document.getElementById("locationBtn");
 const favoriteBtn = document.getElementById("favoriteBtn");
+const celsiusBtn = document.getElementById("celsiusBtn");
+const fahrenheitBtn = document.getElementById("fahrenheitBtn");
+
+let currentUnit = localStorage.getItem("unit") || "metric";
 searchBtn.addEventListener("click", getWeather);
+celsiusBtn.addEventListener("click", () => {
+
+    currentUnit = "metric";
+    localStorage.setItem("unit", currentUnit);
+
+    if (cityInput.value.trim() !== "") {
+        getWeather();
+    }
+
+});
+
+fahrenheitBtn.addEventListener("click", () => {
+
+    currentUnit = "imperial";
+    localStorage.setItem("unit", currentUnit);
+
+    if (cityInput.value.trim() !== "") {
+        getWeather();
+    }
+
+});
 favoriteBtn.addEventListener("click", () => {
 
     const city = cityInput.value.trim();
@@ -97,9 +122,10 @@ async function getWeather() {
         return;
     }
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=${currentUnit}&appid=${apiKey}`;
     const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;  try {
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=${currentUnit}&appid=${apiKey}`;
+    try {
 
         const response = await fetch(url);
         const data = await response.json();
@@ -134,12 +160,12 @@ if (geoData.length > 0) {
         }
 
         document.getElementById("cityName").textContent = data.name;
-        document.getElementById("temp").textContent = `${Math.round(data.main.temp)}°C`;
+        document.getElementById("temp").textContent =`${Math.round(data.main.temp)}${currentUnit === "metric" ? "°C" : "°F"}`;
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = `${data.main.humidity}%`;
         document.getElementById("wind").textContent = `${data.wind.speed} km/h`;
-        document.getElementById("feelsLike").textContent =
-Math.round(data.main.feels_like) + "°C";
+        Math.round(data.main.feels_like) + (currentUnit === "metric" ? "°C" : "°F");
+        
 
 document.getElementById("visibility").textContent =
 (data.visibility / 1000) + " km";
