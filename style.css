@@ -309,3 +309,26 @@ font-size:14px;
 .delete-btn:hover{
 background:#d63031;
 }
+
+.unit-toggle{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:15px;
+}
+
+.unit-toggle button{
+padding:8px 18px;
+border:none;
+border-radius:8px;
+background:#ffffff33;
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.unit-toggle button:hover{
+background:white;
+color:#333;
+}
