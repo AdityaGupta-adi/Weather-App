@@ -98,12 +98,30 @@ async function getWeather() {
     }
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
+    const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;  try {
 
         const response = await fetch(url);
         const data = await response.json();
         const forecastResponse = await fetch(forecastUrl);
         const forecastData = await forecastResponse.json();
+        const geoResponse = await fetch(geoUrl);
+const geoData = await geoResponse.json();
+
+if (geoData.length > 0) {
+
+    const lat = geoData[0].lat;
+    const lon = geoData[0].lon;
+
+    const aqiResponse = await fetch(
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    );
+
+    const aqiData = await aqiResponse.json();
+
+    showAQI(aqiData);
+
+}
 
         if (response.status !== 200) {
 
@@ -278,5 +296,23 @@ function showForecast(forecastData) {
         `;
 
     });
+
+}
+
+function showAQI(aqiData) {
+
+    const aqi = aqiData.list[0].main.aqi;
+
+    const status = [
+        "",
+        "🟢 Good",
+        "🟡 Fair",
+        "🟠 Moderate",
+        "🔴 Poor",
+        "🟣 Very Poor"
+    ];
+
+    document.getElementById("aqi").textContent = aqi;
+    document.getElementById("aqiStatus").textContent = status[aqi];
 
 }
