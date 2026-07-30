@@ -16,10 +16,10 @@ celsiusBtn.addEventListener("click", () => {
     localStorage.setItem("unit", currentUnit);
 
     if (cityInput.value.trim() !== "") {
-    getWeather();
-    updateUnitButtons();
-        }
+        getWeather();
     }
+
+    updateUnitButtons();
 
 });
 
@@ -29,12 +29,13 @@ fahrenheitBtn.addEventListener("click", () => {
     localStorage.setItem("unit", currentUnit);
 
     if (cityInput.value.trim() !== "") {
-    getWeather();
-    updateUnitButtons();
-        }
+        getWeather();
     }
 
+    updateUnitButtons();
+
 });
+
 favoriteBtn.addEventListener("click", () => {
 
     const city = cityInput.value.trim();
@@ -77,7 +78,9 @@ locationBtn.addEventListener("click", () => {
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = data.main.humidity + "%";
         document.getElementById("wind").textContent = data.wind.speed + " km/h";
-        document.getElementById("feelsLike").textContent = Math.round(data.main.feels_like) +(currentUnit === "metric" ? "°C" : "°F");
+        document.getElementById("feelsLike").textContent =
+Math.round(data.main.feels_like) +
+(currentUnit === "metric" ? "°C" : "°F");
 
 document.getElementById("visibility").textContent =
 (data.visibility / 1000) + " km";
