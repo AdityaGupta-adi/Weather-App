@@ -391,3 +391,10 @@ body.dark-mode h3,
 body.dark-mode p{
     color:#fff !important;
 }
+#voiceBtn{
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    margin-left:10px;
+}
