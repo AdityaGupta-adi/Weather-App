@@ -365,6 +365,7 @@ function updateUnitButtons() {
 updateUnitButtons();
 
 const themeBtn = document.getElementById("themeBtn");
+document.body.classList.remove("dark-mode");
 
 themeBtn.addEventListener("click", () => {
 
