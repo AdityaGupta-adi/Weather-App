@@ -391,8 +391,9 @@ if ("webkitSpeechRecognition" in window) {
     };
 
     voiceBtn.addEventListener("click", () => {
-        recognition.start();
-    });
+    alert("Voice button clicked");
+    recognition.start();
+});
 
 } else {
     voiceBtn.style.display = "none";
