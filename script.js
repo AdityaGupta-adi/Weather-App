@@ -377,14 +377,19 @@ themeBtn.addEventListener("click", () => {
         themeBtn.textContent = "🌙 Dark Mode";
     }
 });
+
 const voiceBtn = document.getElementById("voiceBtn");
-console.log(voiceBtn);
 
-if ("webkitSpeechRecognition" in window) {
+const SpeechRecognition =
+window.SpeechRecognition || window.webkitSpeechRecognition;
 
-    const recognition = new webkitSpeechRecognition();
+if (SpeechRecognition) {
+
+    const recognition = new SpeechRecognition();
 
     recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
 
     recognition.onresult = (event) => {
         cityInput.value = event.results[0][0].transcript;
@@ -392,10 +397,18 @@ if ("webkitSpeechRecognition" in window) {
     };
 
     voiceBtn.addEventListener("click", () => {
-    alert("Voice button clicked");
-    recognition.start();
-});
+        alert("Voice button clicked");
+
+        try {
+            recognition.start();
+        } catch (e) {
+            alert(e.message);
+        }
+    });
 
 } else {
+
+    alert("Voice Search is not supported on this browser.");
     voiceBtn.style.display = "none";
+
 }
