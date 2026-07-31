@@ -342,12 +342,52 @@ color:#333;
     font-size:16px;
 }
 
-.dark-mode{
-    background:#121212;
-    color:white;
+body.dark-mode{
+    background:#121212 !important;
+}
+
+body.dark-mode .weather-card{
+    background:#1f1f1f !important;
+    color:#fff !important;
+}
+
+body.dark-mode input{
+    background:#333;
+    color:#fff;
+}
+
+body.dark-mode button{
+    background:#444;
+    color:#fff;
 }
 
 .dark-mode .weather-card{
     background:#1e1e1e;
     color:white;
+}
+
+body.dark-mode{
+    background: #121212 !important;
+}
+
+body.dark-mode .weather-card{
+    background: rgba(30,30,30,0.95) !important;
+    color: white !important;
+}
+
+body.dark-mode input{
+    background:#2d2d2d !important;
+    color:#fff !important;
+}
+
+body.dark-mode button{
+    background:#444 !important;
+    color:#fff !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p{
+    color:#fff !important;
 }
