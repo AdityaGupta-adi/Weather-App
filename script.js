@@ -377,3 +377,23 @@ themeBtn.addEventListener("click", () => {
         themeBtn.textContent = "🌙 Dark Mode";
     }
 });
+const voiceBtn = document.getElementById("voiceBtn");
+
+if ("webkitSpeechRecognition" in window) {
+
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang = "en-US";
+
+    recognition.onresult = (event) => {
+        cityInput.value = event.results[0][0].transcript;
+        getWeather();
+    };
+
+    voiceBtn.addEventListener("click", () => {
+        recognition.start();
+    });
+
+} else {
+    voiceBtn.style.display = "none";
+}
