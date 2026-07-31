@@ -376,5 +376,4 @@ themeBtn.addEventListener("click", () => {
     }else{
         themeBtn.textContent = "🌙 Dark Mode";
     }
-
 });
