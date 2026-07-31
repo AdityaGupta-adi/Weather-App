@@ -378,6 +378,7 @@ themeBtn.addEventListener("click", () => {
     }
 });
 const voiceBtn = document.getElementById("voiceBtn");
+console.log(voiceBtn);
 
 if ("webkitSpeechRecognition" in window) {
 
