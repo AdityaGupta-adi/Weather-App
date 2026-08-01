@@ -398,3 +398,32 @@ body.dark-mode p{
     cursor:pointer;
     margin-left:10px;
 }
+.hourly-container{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    margin:15px 0 25px;
+    padding-bottom:10px;
+}
+
+.hourly-card{
+    min-width:90px;
+    background:rgba(255,255,255,.15);
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+    flex-shrink:0;
+}
+
+.hourly-card img{
+    width:45px;
+}
+
+.hourly-container::-webkit-scrollbar{
+    height:6px;
+}
+
+.hourly-container::-webkit-scrollbar-thumb{
+    background:#ffffff55;
+    border-radius:20px;
+}
