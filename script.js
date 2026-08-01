@@ -138,7 +138,7 @@ async function getWeather() {
         const forecastResponse = await fetch(forecastUrl);
         const forecastData = await forecastResponse.json();
         const geoResponse = await fetch(geoUrl);
-const geoData = await geoResponse.json();
+        const geoData = await geoResponse.json();
 
 if (geoData.length > 0) {
 
@@ -191,11 +191,10 @@ hour: "2-digit",
 minute: "2-digit"
 });
 
-        document.getElementById("icon").src =
-            `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+document.getElementById("icon").src =`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
-        document.getElementById("icon").alt = data.weather[0].description;
-        document.body.className = "";
+document.getElementById("icon").alt = data.weather[0].description;
+document.body.className = "";
 
 const weatherMain = data.weather[0].main.toLowerCase();
 
@@ -217,6 +216,7 @@ showRecentSearches();
 localStorage.setItem("lastCity", city);
 console.log(forecastData);
 showForecast(forecastData);
+showHourlyForecast(forecastData);
         
     } catch (error) {
         document.getElementById("loader").style.display = "none";
@@ -330,6 +330,38 @@ ${currentUnit === "metric" ? "°C" : "°F"}
         </div>
         `;
 
+    });
+
+}
+
+function showHourlyForecast(forecastData) {
+
+    const hourlyBox = document.getElementById("hourlyForecast");
+
+    hourlyBox.innerHTML = "";
+
+    forecastData.list.slice(0, 8).forEach(item => {
+
+        const time = new Date(item.dt_txt)
+            .toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+
+        hourlyBox.innerHTML += `
+        <div class="hourly-card">
+            <h4>${time}</h4>
+
+            <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png">
+
+            <p>
+                ${Math.round(item.main.temp)}
+                ${currentUnit === "metric" ? "°C" : "°F"}
+            </p>
+
+            <small>${item.weather[0].main}</small>
+        </div>
+        `;
     });
 
 }
