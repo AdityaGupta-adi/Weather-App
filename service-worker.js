@@ -1,5 +1,4 @@
 const CACHE_NAME = "weather-app-v1";
-
 const urlsToCache = [
   "./",
   "./index.html",
