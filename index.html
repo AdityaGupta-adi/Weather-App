@@ -11,6 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 
 <body>
@@ -105,12 +106,14 @@
     <h3>Status</h3>
     <p id="aqiStatus">--</p>
 </div>
+
+<h2 class="forecast-title">🗺️ Weather Map</h2>
+<div id="weatherMap"></div>    
             
 <h2 class="forecast-title">Recent Searches</h2>
-
 <div id="recentSearches"></div>
- <h2 class="forecast-title">⭐ Favorite Cities</h2>
-
+            
+<h2 class="forecast-title">⭐ Favorite Cities</h2>
 <div id="favoriteCities"></div>
         </div>
 
@@ -118,7 +121,7 @@
 
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
