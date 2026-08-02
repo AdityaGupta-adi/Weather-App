@@ -446,3 +446,26 @@ body.dark-mode p{
 .footer p{
     margin:4px;
 }
+body.clear{
+    background:linear-gradient(135deg,#56ccf2,#2f80ed);
+}
+
+body.clouds{
+    background:linear-gradient(135deg,#bdc3c7,#2c3e50);
+}
+
+body.rain{
+    background:linear-gradient(135deg,#4b79a1,#283e51);
+}
+
+body.snow{
+    background:linear-gradient(135deg,#e6dada,#274046);
+}
+
+body.thunderstorm{
+    background:linear-gradient(135deg,#232526,#414345);
+}
+
+body.mist{
+    background:linear-gradient(135deg,#757f9a,#d7dde8);
+}
