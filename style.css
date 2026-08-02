@@ -435,3 +435,14 @@ body.dark-mode p{
     overflow:hidden;
     margin:20px 0;
 }
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#fff;
+    opacity:0.8;
+    font-size:14px;
+}
+
+.footer p{
+    margin:4px;
+}
