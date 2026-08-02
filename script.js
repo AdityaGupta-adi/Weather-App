@@ -411,13 +411,12 @@ async function getLocationWeather(){
         },
 
         ()=>{
-
             alert("Location permission denied.");
 
         }
 
     );
-
+   console.log(data.main.feels_like);
 }
 
 /* =========================
