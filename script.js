@@ -303,7 +303,6 @@ function updateWeather(data){
 
 function updateMap(lat, lon, city){
     console.log("updateMap called");
-    alert(typeof L);
 
     const mapDiv = document.getElementById("weatherMap");
 
