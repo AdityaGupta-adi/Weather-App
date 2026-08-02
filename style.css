@@ -571,12 +571,15 @@ button:hover{
 }
 
 .footer{
+    display:block !important;
     width:100%;
     text-align:center;
-    padding:20px;
-    margin-top:20px;
-    color:#fff;
+    color:white;
+    margin-top:30px;
+    padding:15px;
     font-size:14px;
+    background:rgba(255,255,255,0.08);
+    border-radius:12px;
 }
 
 .footer p{
