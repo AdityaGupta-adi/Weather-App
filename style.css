@@ -793,3 +793,54 @@ body{
     }
 
 }
+/* =========================
+   WEATHER STATS
+========================= */
+
+.stats-container{
+
+display:grid;
+
+grid-template-columns:1fr;
+
+gap:15px;
+
+margin:20px 0;
+
+}
+
+.stat-card{
+
+background:rgba(255,255,255,.15);
+
+padding:15px;
+
+border-radius:15px;
+
+}
+
+.progress{
+
+height:10px;
+
+background:rgba(255,255,255,.25);
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-top:10px;
+
+}
+
+.progress-fill{
+
+width:0%;
+
+height:100%;
+
+background:#00ff95;
+
+transition:1s;
+
+}
