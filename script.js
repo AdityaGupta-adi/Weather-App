@@ -4,6 +4,7 @@
 
 const apiKey = "462e6670cb58e21c2774f6990c3ab0ed";
 console.log("Leaflet =", typeof L);
+alert("Script Loaded");
 
 /* =========================
    VARIABLES
