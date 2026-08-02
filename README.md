@@ -66,14 +66,16 @@ https://github.com/AdityaGupta-adi
 
 ## 📸 Application Preview
 
-### Home Screen
+### 🏠 Home Screen
 
+![Home Screen](home.png)
 
+### 🌦 Weather Search
 
-### Weather Search
+![Weather Search](weather.png)
 
+### 🌙 Dark Mode
 
-
-### Dark Mode
+![Dark Mode](darkmode.png)
 
 
