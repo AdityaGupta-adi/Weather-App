@@ -301,8 +301,8 @@ function updateWeather(data){
 ========================= */
 
 function updateMap(lat, lon, city){
-
-    alert("Map Function Called");
+    console.log("updateMap called");
+    alert(typeof L);
 
     const mapDiv = document.getElementById("weatherMap");
 
