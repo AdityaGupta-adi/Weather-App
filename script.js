@@ -176,6 +176,10 @@ if (geoData.length > 0) {
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = `${data.main.humidity}%`;
         document.getElementById("wind").textContent = `${data.wind.speed} km/h`;
+        document.getElementById("tempProgress").style.width = Math.min(Math.round(data.main.temp), 50) * 2 + "%";
+
+        document.getElementById("humidityProgress").style.width = data.main.humidity + "%";
+        document.getElementById("windProgress").style.width = Math.min(Math.round(data.wind.speed), 50) * 2 + "%";
         document.getElementById("feelsLike").textContent = Math.round(data.main.feels_like) + (currentUnit === "metric" ? "°C" : "°F");
         
 
