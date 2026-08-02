@@ -1,28 +1,20 @@
 # 🌦 Weather App
 
-A modern and responsive Weather Application built using HTML, CSS and JavaScript. It provides real-time weather information using the OpenWeather API.
-
-## 🚀 Live Demo
-
-https://adityagupta-adi.github.io/Weather-App/
-
----
+A modern Weather App built using HTML, CSS and JavaScript with real-time weather information powered by the OpenWeather API.
 
 ## ✨ Features
 
-- 🔍 Search weather by city
+- 🌍 Search weather by city
 - 📍 Current location weather
-- 🌡 Temperature
-- 💧 Humidity
-- 💨 Wind Speed
-- 🌅 Sunrise & Sunset
-- 🌡 Feels Like Temperature
-- 👁 Visibility
-- 📊 Pressure
-- 🎨 Dynamic Weather Background
-- 📱 Responsive Design
-
----
+- 🎤 Voice search
+- 🌙 Dark / Light mode
+- 🌡 Celsius / Fahrenheit
+- 📅 5-Day Forecast
+- 🕒 24-Hour Forecast
+- 🌿 Air Quality Index (AQI)
+- ⭐ Favorite Cities
+- 🕘 Recent Searches
+- 📱 Fully Responsive Design
 
 ## 🛠 Technologies Used
 
@@ -30,41 +22,22 @@ https://adityagupta-adi.github.io/Weather-App/
 - CSS3
 - JavaScript (ES6)
 - OpenWeather API
+- Local Storage
+- GitHub Pages
 
----
+## 🚀 Live Demo
+
+https://adityagupta-adi.github.io/Weather-App/
 
 ## 📸 Screenshot
 
-_Add a screenshot of your app here._
+(Add a screenshot here later)
 
----
-
-## 📂 Project Structure
-
-```
-Weather-App/
-│── index.html
-│── style.css
-│── script.js
-│── README.md
-```
-
----
-
-## 🔮 Future Improvements
-
-- ⭐ Favorite Cities
-- 📅 5-Day Forecast
-- 🌙 Dark Mode
-- ⏳ Loading Animation
-- ❌ Better Error Handling
-- 🌈 Animated Backgrounds
-
----
-
-## 👨‍💻 Developer
+## 👨‍💻 Author
 
 **Aditya Gupta**
+
+BCA Student • COER University, Roorkee
 
 GitHub:
 https://github.com/AdityaGupta-adi
