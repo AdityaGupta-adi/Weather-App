@@ -301,6 +301,9 @@ function updateWeather(data){
 
 function updateMap(lat, lon, city){
 
+   console.log("Map div:", document.getElementById("weatherMap"));
+   console.log("Leaflet:", typeof L);
+
     console.log("updateMap called", lat, lon, city);
 
     const mapDiv = document.getElementById("weatherMap");
