@@ -497,3 +497,10 @@ function updateMap(lat, lon, city) {
         map.invalidateSize();
     }, 300);
 }
+
+console.log("Leaflet:", typeof L);
+
+window.onload = () => {
+    const mapDiv = document.getElementById("weatherMap");
+    console.log(mapDiv);
+};
