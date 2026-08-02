@@ -2,15 +2,10 @@
 A modern, responsive Weather Application built using **HTML, CSS and JavaScript**. It provides real-time weather information, 5-day forecast, hourly forecast, Air Quality Index (AQI), voice search, location detection, dark mode, favorite cities, and Progressive Web App (PWA) support.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
 ![OpenWeather API](https://img.shields.io/badge/OpenWeather-API-orange?style=for-the-badge)
-
 ![Responsive](https://img.shields.io/badge/Responsive-Yes-success?style=for-the-badge)
-
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
 <p align="center">
@@ -58,7 +53,7 @@ https://adityagupta-adi.github.io/Weather-App/
 
 ## 📸 Screenshot
 
-(Add a screenshot here later)
+
 
 ## 👨‍💻 Author
 
@@ -73,12 +68,12 @@ https://github.com/AdityaGupta-adi
 
 ### Home Screen
 
-(Add screenshot here)
+
 
 ### Weather Search
 
-(Add screenshot here)
+
 
 ### Dark Mode
 
-(Add screenshot here)
+
