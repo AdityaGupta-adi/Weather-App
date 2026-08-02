@@ -508,3 +508,16 @@ window.onload = () => {
     const mapDiv = document.getElementById("weatherMap");
     console.log(mapDiv);
 };
+/* =========================
+   AUTO REFRESH WEATHER
+========================= */
+
+setInterval(() => {
+
+    if(cityInput.value.trim() !== ""){
+
+        getWeather();
+
+    }
+
+},300000);
