@@ -170,7 +170,7 @@ if (geoData.length > 0) {
         }
 
         document.getElementById("cityName").textContent = data.name;
-        alert("Calling updateMap");
+        
         updateMap(data.coord.lat, data.coord.lon, data.name);
         console.log("Map Updated");
         document.getElementById("temp").textContent =`${Math.round(data.main.temp)}${currentUnit === "metric" ? "°C" : "°F"}`;
@@ -221,9 +221,9 @@ document.getElementById("errorBox").style.display = "none";
 
 showRecentSearches(); 
 localStorage.setItem("lastCity", city);
-console.log(forecastData);
+
 showForecast(forecastData);
-console.log("Hourly Forecast:", forecastData.list);
+
 showHourlyForecast(forecastData);
         
     } catch (error) {
