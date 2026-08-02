@@ -744,3 +744,52 @@ button:active{
     box-shadow:0 12px 25px rgba(0,0,0,.25);
 
 }
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+body{
+    background-size:400% 400%;
+    animation:bgAnimation 15s ease infinite;
+}
+
+@keyframes bgAnimation{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+/* =========================
+   WEATHER ICON
+========================= */
+
+#icon{
+
+    animation:floatIcon 3s ease-in-out infinite;
+
+}
+
+@keyframes floatIcon{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
