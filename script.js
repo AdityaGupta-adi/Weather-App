@@ -105,6 +105,8 @@ minute: "2-digit"
             `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 document.body.className = "";
 
+document.body.className = "";
+
 const weatherMain = data.weather[0].main.toLowerCase();
 
 document.body.classList.add(weatherMain);
