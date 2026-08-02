@@ -205,11 +205,58 @@ gap:15px;
 margin-top:25px;
 }
 
+/* =========================
+   PREMIUM WEATHER CARDS
+========================= */
+
 .extra-card{
-background:rgba(255,255,255,.15);
-padding:15px;
-border-radius:12px;
-text-align:center;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    transition:.35s ease;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+.extra-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.30);
+
+}
+
+.extra-card h3{
+
+    color:#ffffff;
+
+    margin-bottom:10px;
+
+    font-size:16px;
+
+}
+
+.extra-card p{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:600;
+
 }
 
 .extra-card h3{
@@ -676,5 +723,24 @@ button:hover{
 button:active{
 
     transform:scale(.96);
+
+}
+/* =========================
+   FORECAST CARDS
+========================= */
+
+.forecast-card,
+.hourly-card{
+
+    transition:.3s ease;
+
+}
+
+.forecast-card:hover,
+.hourly-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
 
 }
