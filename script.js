@@ -170,13 +170,14 @@ if (geoData.length > 0) {
         }
 
         document.getElementById("cityName").textContent = data.name;
+        alert("Calling updateMap");
         updateMap(data.coord.lat, data.coord.lon, data.name);
         console.log("Map Updated");
         document.getElementById("temp").textContent =`${Math.round(data.main.temp)}${currentUnit === "metric" ? "°C" : "°F"}`;
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = `${data.main.humidity}%`;
         document.getElementById("wind").textContent = `${data.wind.speed} km/h`;
-        Math.round(data.main.feels_like) + (currentUnit === "metric" ? "°C" : "°F");
+        document.getElementById("feelsLike").textContent = Math.round(data.main.feels_like) + (currentUnit === "metric" ? "°C" : "°F");
         
 
 document.getElementById("visibility").textContent =
