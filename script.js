@@ -81,8 +81,8 @@ locationBtn.addEventListener("click", () => {
         document.getElementById("humidity").textContent = data.main.humidity + "%";
         document.getElementById("wind").textContent = data.wind.speed + " km/h";
         document.getElementById("feelsLike").textContent =
-Math.round(data.main.feels_like) +
-(currentUnit === "metric" ? "°C" : "°F");
+    Math.round(data.main.feels_like) +
+    (currentUnit === "metric" ? "°C" : "°F");
 
 document.getElementById("visibility").textContent =
 (data.visibility / 1000) + " km";
