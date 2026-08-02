@@ -171,6 +171,7 @@ if (geoData.length > 0) {
 
         document.getElementById("cityName").textContent = data.name;
         updateMap(data.coord.lat, data.coord.lon, data.name);
+        console.log("Map Updated");
         document.getElementById("temp").textContent =`${Math.round(data.main.temp)}${currentUnit === "metric" ? "°C" : "°F"}`;
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = `${data.main.humidity}%`;
@@ -481,4 +482,7 @@ function updateMap(lat, lon, city) {
         .addTo(map)
         .bindPopup(city)
         .openPopup();
+    setTimeout(() => {
+    map.invalidateSize();
+}, 200);
 }
