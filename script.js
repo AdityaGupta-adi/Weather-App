@@ -216,6 +216,7 @@ showRecentSearches();
 localStorage.setItem("lastCity", city);
 console.log(forecastData);
 showForecast(forecastData);
+console.log("Hourly Forecast:", forecastData.list);
 showHourlyForecast(forecastData);
         
     } catch (error) {
