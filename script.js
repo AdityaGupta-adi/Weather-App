@@ -269,6 +269,10 @@ function updateWeather(data){
 
     document.getElementById("icon").alt =
         data.weather[0].description;
+   
+   document.getElementById("feelsLike").textContent =
+    Math.round(data.main.feels_like) +
+    (currentUnit === "metric" ? "°C" : "°F");
 
     /* Progress Bars */
 
