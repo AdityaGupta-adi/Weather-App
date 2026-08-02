@@ -374,22 +374,26 @@ function showHourlyForecast(forecastData) {
 
 }
 
-function showAQI(aqiData) {
+function showAQI(aqiData){
+
+    if(!aqiData || !aqiData.list || aqiData.list.length === 0){
+        document.getElementById("aqi").textContent = "--";
+        document.getElementById("aqiStatus").textContent = "--";
+        return;
+    }
 
     const aqi = aqiData.list[0].main.aqi;
 
-    const status = [
-        "",
-        "🟢 Good",
-        "🟡 Fair",
-        "🟠 Moderate",
-        "🔴 Poor",
-        "🟣 Very Poor"
-    ];
+    const status = {
+        1:"🟢 Good",
+        2:"🟡 Fair",
+        3:"🟠 Moderate",
+        4:"🔴 Poor",
+        5:"🟣 Very Poor"
+    };
 
     document.getElementById("aqi").textContent = aqi;
-    document.getElementById("aqiStatus").textContent = status[aqi];
-
+    document.getElementById("aqiStatus").textContent = status[aqi] || "--";
 }
 
 function updateUnitButtons() {
