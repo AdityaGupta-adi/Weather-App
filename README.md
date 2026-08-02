@@ -20,7 +20,9 @@ A modern, responsive Weather Application built using **HTML, CSS and JavaScript*
 
 </p>
 
-A modern Weather App built using HTML, CSS and JavaScript with real-time weather information powered by the OpenWeather API.
+## 📖 About Project
+
+This Weather App is a modern web application that provides real-time weather updates using the OpenWeather API. It includes weather forecasts, air quality information, voice search, location detection, favorite cities, recent searches, dark mode, and Progressive Web App (PWA) support. The project focuses on responsive design, clean UI, and practical JavaScript API integration.
 
 ## ✨ Features
 
@@ -77,5 +79,22 @@ https://github.com/AdityaGupta-adi
 ### 🌙 Dark Mode
 
 ![Dark Mode](darkmode.png)
+
+## 🚀 Future Improvements
+
+- Weather Radar Map
+- Weather Alerts
+- UV Index
+- Sunrise & Sunset Charts
+- Multi-language Support
+- Theme Customization
+- Weather History
+
+## ▶️ How to Run
+
+1. Clone this repository.
+2. Open the project folder.
+3. Add your OpenWeather API key in `script.js`.
+4. Open `index.html` in your browser.
 
 
