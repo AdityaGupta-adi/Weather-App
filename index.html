@@ -16,9 +16,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 </head>
 
@@ -30,28 +33,15 @@
 
 <h1>🌦 Weather App</h1>
 
-<button id="themeBtn">🌙 Dark Mode</button>
+<p class="subtitle">
+Real-Time Weather Forecast
+</p>
 
-<div class="search-box">
+<div class="top-buttons">
 
-<input
-type="text"
-id="city"
-placeholder="Enter city name">
-
-<button id="searchBtn">
-Search
+<button id="themeBtn">
+🌙 Dark Mode
 </button>
-
-<button id="voiceBtn">
-🎤 Voice
-</button>
-
-<button id="favoriteBtn">
-⭐ Add Favorite
-</button>
-
-</div>
 
 <div class="unit-toggle">
 
@@ -65,9 +55,36 @@ Search
 
 </div>
 
-<button id="locationBtn">
-📍 Use My Location
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+id="city"
+placeholder="Enter city name...">
+
+<button id="searchBtn">
+🔍 Search
 </button>
+
+</div>
+
+<div class="action-buttons">
+
+<button id="locationBtn">
+📍 Current Location
+</button>
+
+<button id="voiceBtn">
+🎤 Voice Search
+</button>
+
+<button id="favoriteBtn">
+⭐ Favorite
+</button>
+
+</div>
 
 <div id="loader"
 class="loader"
@@ -83,8 +100,7 @@ style="display:none;">
 </div>
 
 <div id="weather">
-
-<img id="icon" src="" alt="">
+<img id="icon" src="" alt="Weather Icon">
 
 <h2 id="cityName">
 City Name
@@ -100,24 +116,91 @@ Weather Condition
 
 <div class="details">
 
-    <div>
-        <h3>💧 Humidity</h3>
-        <p id="humidity">--%</p>
-    </div>
+<div class="detail-card">
 
-    <div>
-        <h3>🌬 Wind</h3>
-        <p id="wind">-- km/h</p>
-    </div>
+<h3>💧 Humidity</h3>
+
+<p id="humidity">
+--%
+</p>
+
+</div>
+
+<div class="detail-card">
+
+<h3>🌬 Wind</h3>
+
+<p id="wind">
+-- km/h
+</p>
+
+</div>
 
 </div>
 
 <div class="extra-details">
+
+<div class="extra-card">
+
+<h3>🌡 Feels Like</h3>
+
+<p id="feelsLike">
+--°C
+</p>
+
+</div>
+
+<div class="extra-card">
+
+<h3>👁 Visibility</h3>
+
+<p id="visibility">
+-- km
+</p>
+
+</div>
+
+<div class="extra-card">
+
+<h3>📊 Pressure</h3>
+
+<p id="pressure">
+-- hPa
+</p>
+
+</div>
+
+<div class="extra-card">
+
+<h3>🌅 Sunrise</h3>
+
+<p id="sunrise">
+--:--
+</p>
+
+</div>
+
+<div class="extra-card">
+
+<h3>🌇 Sunset</h3>
+
+<p id="sunset">
+--:--
+</p>
+
+</div>
+
+</div>
+
+<h2 class="section-title">
+📊 Weather Statistics
+</h2>
+
 <div class="stats-container">
 
 <div class="stat-card">
 
-<h3>🌡 Temperature</h3>
+<h4>Temperature</h4>
 
 <div class="progress">
 
@@ -129,7 +212,7 @@ Weather Condition
 
 <div class="stat-card">
 
-<h3>💧 Humidity</h3>
+<h4>Humidity</h4>
 
 <div class="progress">
 
@@ -141,7 +224,7 @@ Weather Condition
 
 <div class="stat-card">
 
-<h3>💨 Wind</h3>
+<h4>Wind Speed</h4>
 
 <div class="progress">
 
@@ -152,92 +235,83 @@ Weather Condition
 </div>
 
 </div>
-
-    <div class="extra-card">
-        <h3>🌡️ Feels Like</h3>
-        <p id="feelsLike">--°C</p>
-    </div>
-
-    <div class="extra-card">
-        <h3>👁 Visibility</h3>
-        <p id="visibility">-- km</p>
-    </div>
-
-    <div class="extra-card">
-        <h3>📊 Pressure</h3>
-        <p id="pressure">-- hPa</p>
-    </div>
-
-    <div class="extra-card">
-        <h3>🌅 Sunrise</h3>
-        <p id="sunrise">--:--</p>
-    </div>
-
-    <div class="extra-card">
-        <h3>🌇 Sunset</h3>
-        <p id="sunset">--:--</p>
-    </div>
-
-</div>
-
-<h2 class="forecast-title">
-5-Day Forecast
+<h2 class="section-title">
+📅 5-Day Forecast
 </h2>
 
 <div id="forecast" class="forecast-container"></div>
 
-<h2 class="forecast-title">
-🕒 24-Hour Forecast
+<h2 class="section-title">
+🕒 Hourly Forecast
 </h2>
 
 <div id="hourlyForecast" class="hourly-container"></div>
 
-<h2 class="forecast-title">
-🌿 Air Quality
+<h2 class="section-title">
+🌿 Air Quality Index
 </h2>
 
-<div class="extra-card">
+<div class="aqi-card">
 
-    <h3>AQI</h3>
-    <p id="aqi">--</p>
+<div class="aqi-box">
 
-    <h3>Status</h3>
-    <p id="aqiStatus">--</p>
+<h3>AQI</h3>
+
+<p id="aqi">
+--
+</p>
 
 </div>
 
-<h2 class="forecast-title">
+<div class="aqi-box">
+
+<h3>Status</h3>
+
+<p id="aqiStatus">
+--
+</p>
+
+</div>
+
+</div>
+
+<h2 class="section-title">
 🗺️ Weather Map
 </h2>
 
 <div id="weatherMap"></div>
 
-<h2 class="forecast-title">
+<h2 class="section-title">
 🕘 Recent Searches
 </h2>
 
 <div id="recentSearches"></div>
 
-<h2 class="forecast-title">
+<h2 class="section-title">
 ⭐ Favorite Cities
 </h2>
 
 <div id="favoriteCities"></div>
-
-</div> <!-- weather -->
+</div>
 
 <footer class="footer">
-    <p>❤️ Made by Aditya Gupta</p>
-    <p>BCA Student • COER University</p>
+
+<p>❤️ Made with HTML, CSS & JavaScript</p>
+
+<p>Developed by <strong>Aditya Gupta</strong></p>
+
+<p>BCA Student • COER University, Roorkee</p>
+
 </footer>
 
-</div> <!-- weather-card -->
-</div> <!-- container -->
+</div>
+
+</div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
-
-
