@@ -1,4 +1,6 @@
 const apiKey = "462e6670cb58e21c2774f6990c3ab0ed";
+let map;
+let marker;
 let recentCities = JSON.parse(localStorage.getItem("recentCities")) || [];
 let favoriteCities = JSON.parse(localStorage.getItem("favoriteCities")) || [];
 const searchBtn = document.getElementById("searchBtn");
@@ -7,8 +9,6 @@ const locationBtn = document.getElementById("locationBtn");
 const favoriteBtn = document.getElementById("favoriteBtn");
 const celsiusBtn = document.getElementById("celsiusBtn");
 const fahrenheitBtn = document.getElementById("fahrenheitBtn");
-let map;
-let marker;
 
 let currentUnit = localStorage.getItem("unit") || "metric";
 searchBtn.addEventListener("click", getWeather);
