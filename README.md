@@ -1,5 +1,6 @@
 # 🌦 Weather App
 A modern, responsive Weather Application built using **HTML, CSS and JavaScript**. It provides real-time weather information, 5-day forecast, hourly forecast, Air Quality Index (AQI), voice search, location detection, dark mode, favorite cities, and Progressive Web App (PWA) support.
+
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
