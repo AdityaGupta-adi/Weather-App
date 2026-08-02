@@ -469,3 +469,70 @@ body.thunderstorm{
 body.mist{
     background:linear-gradient(135deg,#757f9a,#d7dde8);
 }
+
+/* =========================
+   WEATHER MAP
+========================= */
+
+#weatherMap{
+    width:100%;
+    height:300px;
+    margin:20px 0;
+    border-radius:15px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,0.2);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:25px;
+    padding:20px;
+    text-align:center;
+    color:#fff;
+    font-size:14px;
+    border-top:1px solid rgba(255,255,255,0.2);
+}
+
+.footer p{
+    margin:5px 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:600px){
+
+.search-box{
+    flex-direction:column;
+}
+
+.search-box button{
+    width:100%;
+}
+
+.unit-toggle{
+    justify-content:center;
+}
+
+.details,
+.extra-details{
+    grid-template-columns:1fr;
+}
+
+.forecast-container{
+    overflow-x:auto;
+}
+
+.hourly-container{
+    overflow-x:auto;
+}
+
+#weatherMap{
+    height:250px;
+}
+
+}
