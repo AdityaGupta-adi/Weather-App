@@ -7,6 +7,8 @@ const locationBtn = document.getElementById("locationBtn");
 const favoriteBtn = document.getElementById("favoriteBtn");
 const celsiusBtn = document.getElementById("celsiusBtn");
 const fahrenheitBtn = document.getElementById("fahrenheitBtn");
+let map;
+let marker;
 
 let currentUnit = localStorage.getItem("unit") || "metric";
 searchBtn.addEventListener("click", getWeather);
@@ -166,6 +168,7 @@ if (geoData.length > 0) {
         }
 
         document.getElementById("cityName").textContent = data.name;
+        updateMap(data.coord.lat, data.coord.lon, data.name);
         document.getElementById("temp").textContent =`${Math.round(data.main.temp)}${currentUnit === "metric" ? "°C" : "°F"}`;
         document.getElementById("condition").textContent = data.weather[0].description;
         document.getElementById("humidity").textContent = `${data.main.humidity}%`;
@@ -451,4 +454,29 @@ if ("serviceWorker" in navigator) {
             .then(() => console.log("Service Worker Registered"))
             .catch(err => console.log(err));
     });
+}
+function updateMap(lat, lon, city) {
+
+    if (!map) {
+
+        map = L.map("weatherMap").setView([lat, lon], 10);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+    } else {
+
+        map.setView([lat, lon], 10);
+
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+    }
+
+    marker = L.marker([lat, lon])
+        .addTo(map)
+        .bindPopup(city)
+        .openPopup();
 }
