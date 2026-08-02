@@ -307,7 +307,7 @@ function updateMap(lat, lon, city){
 
     if(!mapDiv) return;
 
-    if(map === null){
+    if(!map){
 
         console.log("Leaflet =", typeof L);
 
