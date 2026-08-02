@@ -301,16 +301,15 @@ function updateWeather(data){
 
 function updateMap(lat, lon, city){
 
-   console.log("Map div:", document.getElementById("weatherMap"));
-   console.log("Leaflet:", typeof L);
-
-    console.log("updateMap called", lat, lon, city);
+    alert("Map Function Called");
 
     const mapDiv = document.getElementById("weatherMap");
 
     if(!mapDiv) return;
 
     if(!map){
+
+        alert("Creating Map");
 
         console.log("Leaflet =", typeof L);
 
