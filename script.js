@@ -163,7 +163,6 @@ if (geoData.length > 0) {
 
     document.getElementById("loader").style.display = "none";
     document.getElementById("weather").style.display = "block";
-
     document.getElementById("errorBox").style.display = "block";
 
     return;
@@ -171,7 +170,7 @@ if (geoData.length > 0) {
 
         document.getElementById("cityName").textContent = data.name;
         
-        //updateMap(data.coord.lat, data.coord.lon, data.name);
+        updateMap(data.coord.lat, data.coord.lon, data.name);
         console.log("Map Updated");
         document.getElementById("temp").textContent =`${Math.round(data.main.temp)}${currentUnit === "metric" ? "°C" : "°F"}`;
         document.getElementById("condition").textContent = data.weather[0].description;
@@ -463,14 +462,20 @@ if ("serviceWorker" in navigator) {
             .catch(err => console.log(err));
     });
 }
+
 function updateMap(lat, lon, city) {
+
+    const mapDiv = document.getElementById("weatherMap");
+
+    if (!mapDiv) return;
 
     if (!map) {
 
         map = L.map("weatherMap").setView([lat, lon], 10);
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: "&copy; OpenStreetMap contributors"
+            attribution: "&copy; OpenStreetMap contributors",
+            maxZoom: 19
         }).addTo(map);
 
     } else {
@@ -480,14 +485,15 @@ function updateMap(lat, lon, city) {
         if (marker) {
             map.removeLayer(marker);
         }
-
     }
 
     marker = L.marker([lat, lon])
         .addTo(map)
         .bindPopup(city)
         .openPopup();
+
+    // Mobile rendering fix
     setTimeout(() => {
-    map.invalidateSize();
-}, 200);
+        map.invalidateSize();
+    }, 300);
 }
